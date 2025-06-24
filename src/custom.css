@@ -1,0 +1,52 @@
+/* Background Gradient */
+body {
+     background: linear-gradient(to bottom right, #070519, #1b1350, #111120);
+  position: relative;
+  z-index: 0;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+.grid-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: -1;
+}
+
+/* Hover link colors in navbar and mobile menu */
+a.text-white:hover,
+a.text-info:hover {
+  color: #00ffff !important;
+}
+
+/* Smooth transition for buttons and links */
+a,
+button {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Custom shadow effect if needed */
+.shadow {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Hamburger menu mobile z-index fix */
+.z-1 {
+  z-index: 9999;
+}
+
+
+/* Add this to your custom.css */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+}
