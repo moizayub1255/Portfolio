@@ -85,7 +85,7 @@ export default function App() {
       {/* Hero Section */}
       <section
         className="container d-flex align-items-center pb-3"
-        style={{ minHeight: "70vh" }}
+        style={{ minHeight: "80vh" }}
       >
         <div className="row align-items-center w-100">
           {/* 👤 Image Column */}
@@ -205,10 +205,7 @@ export default function App() {
       </section>
 
       {/* Projects Section */}
-      <section
-        id="projects"
-        className="py-5 text-center px-3 bg-dark text-light"
-      >
+      <section id="projects" className="py-5 text-center px-3  text-light">
         <h3 className="h2 fw-bold mb-4">Projects</h3>
         <div className="container">
           <div className="row g-4">
@@ -227,65 +224,71 @@ export default function App() {
                   featuring cart, admin dashboard, and authentication.
                 </p>
 
-                <div className="mt-auto d-flex justify-content-center gap-4 fs-5">
+                <div className="mt-auto d-flex justify-content-center gap-3 flex-wrap">
                   <a
-                    href="https://github.com/yourusername/capture-mart"
+                    href="https://github.com/moizayub1255/MERN-E-commerce"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-info"
+                    className="btn btn-outline-info d-flex align-items-center gap-2"
                     title="GitHub Repo"
                   >
-                    <i className="bi bi-github"></i>
+                    <i className="bi bi-github fs-5"></i>
+                    GitHub Repo
                   </a>
                   <a
-                    href="https://capturemart.netlify.app"
+                    href="https://moizkiecommerce.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-info"
+                    className="btn btn-info text-white d-flex align-items-center gap-2"
                     title="Live Demo"
                   >
-                    <i className="bi bi-box-arrow-up-right"></i>
+                    <i className="bi bi-box-arrow-up-right fs-5"></i>
+                    Live Preview
                   </a>
                 </div>
               </div>
             </div>
+
             <div className="col-md-4">
               <div className="bg-secondary p-4 rounded shadow h-100 d-flex flex-column">
                 <img
-                  src="/project1.png"
+                  src="/sports.png"
                   alt="Project 1"
                   className="img-fluid rounded mb-3"
                   style={{ height: "180px", objectFit: "cover" }}
                 />
 
-                <h4 className="h5 fw-semibold">UCP GameOn</h4>
+                <h4 className="h5 fw-semibold">UCP Sports Website</h4>
                 <p className="text-light mb-3">
                   A full-stack sports website built with the MERN stack
-                  featuring leaderboard, admin dashboard, and authentication.
+                  featuring scorecard, admin dashboard, and authentication.
                 </p>
 
-                <div className="mt-auto d-flex justify-content-center gap-4 fs-5">
+                <div className="mt-auto d-flex justify-content-center gap-3 flex-wrap">
                   <a
-                    href="https://github.com/yourusername/capture-mart"
+                    href="https://github.com/moizayub1255/MERN-E-commerce"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-info"
+                    className="btn btn-outline-info d-flex align-items-center gap-2"
                     title="GitHub Repo"
                   >
-                    <i className="bi bi-github"></i>
+                    <i className="bi bi-github fs-5"></i>
+                    GitHub Repo
                   </a>
                   <a
-                    href="https://capturemart.netlify.app"
+                    href="https://moizkiecommerce.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-info"
+                    className="btn btn-info text-white d-flex align-items-center gap-2"
                     title="Live Demo"
                   >
-                    <i className="bi bi-box-arrow-up-right"></i>
+                    <i className="bi bi-box-arrow-up-right fs-5"></i>
+                    Live Preview
                   </a>
                 </div>
               </div>
             </div>
+
             <div className="col-md-4">
               <div className="bg-secondary p-4 rounded shadow h-100 d-flex flex-column">
                 <img
@@ -295,31 +298,32 @@ export default function App() {
                   style={{ height: "180px", objectFit: "cover" }}
                 />
 
-                <h4 className="h5 fw-semibold">Talaash</h4>
+                <h4 className="h5 fw-semibold">Capture Mart</h4>
                 <p className="text-light mb-3">
-                  A full-stack job, scholarship and lost & found items website
-                  built with the MERN stack featuring admin dashboard, and
-                  authentication.
+                  A full-stack e-commerce website built with the MERN stack
+                  featuring cart, admin dashboard, and authentication.
                 </p>
 
-                <div className="mt-auto d-flex justify-content-center gap-4 fs-5">
+                <div className="mt-auto d-flex justify-content-center gap-3 flex-wrap">
                   <a
-                    href="https://github.com/yourusername/capture-mart"
+                    href="https://github.com/moizayub1255/MERN-E-commerce"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-info"
+                    className="btn btn-outline-info d-flex align-items-center gap-2"
                     title="GitHub Repo"
                   >
-                    <i className="bi bi-github"></i>
+                    <i className="bi bi-github fs-5"></i>
+                    GitHub Repo
                   </a>
                   <a
-                    href="https://capturemart.netlify.app"
+                    href="https://moizkiecommerce.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-info"
+                    className="btn btn-info text-white d-flex align-items-center gap-2"
                     title="Live Demo"
                   >
-                    <i className="bi bi-box-arrow-up-right"></i>
+                    <i className="bi bi-box-arrow-up-right fs-5"></i>
+                    Live Preview
                   </a>
                 </div>
               </div>
@@ -329,7 +333,7 @@ export default function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-5 text-center bg-dark text-light">
+      <section id="contact" className="py-5 text-center text-light">
         <div className="container">
           <h3 className="h2 fw-bold mb-4">Contact Me</h3>
           <p className="mb-4">Let's build something amazing together!</p>
@@ -354,38 +358,41 @@ export default function App() {
             style={{ maxWidth: "600px" }}
           >
             <div className="mb-3 text-start">
-              <label htmlFor="name" className="form-label fw-semibold">
+              {/* <label htmlFor="name" className="form-label fw-semibold">
                 Name
-              </label>
+              </label> */}
               <input
                 type="text"
                 name="name"
                 className="form-control"
                 required
+                placeholder="Name"
               />
             </div>
 
             <div className="mb-3 text-start">
-              <label htmlFor="email" className="form-label fw-semibold">
+              {/* <label htmlFor="email" className="form-label fw-semibold">
                 Email
-              </label>
+              </label> */}
               <input
                 type="email"
                 name="email"
                 className="form-control"
                 required
+                placeholder="Email"
               />
             </div>
 
             <div className="mb-3 text-start">
-              <label htmlFor="message" className="form-label fw-semibold">
+              {/* <label htmlFor="message" className="form-label fw-semibold">
                 Message
-              </label>
+              </label> */}
               <textarea
                 name="message"
                 rows="4"
                 className="form-control"
                 required
+                placeholder="Your message here..."
               ></textarea>
             </div>
 
