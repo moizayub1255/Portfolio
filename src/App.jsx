@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaCode,
   FaLaptopCode,
@@ -9,10 +9,29 @@ import {
   FaBars,
 } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./custom.css"; // Add this for extra custom styling if needed
+import "./custom.css"; 
+import "./animations.css"; 
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  const elements = document.querySelectorAll(".animate-on-scroll");
+  elements.forEach((el) => observer.observe(el));
+
+  return () => observer.disconnect();
+}, []);
 
   return (
     <div className="text-white min-vh-100 bg-gradient grid-overlay">
@@ -85,7 +104,7 @@ export default function App() {
       {/* Hero Section */}
       <section
         className="container d-flex align-items-center pb-3"
-        style={{ minHeight: "80vh" }}
+        style={{ minHeight: "90vh" }}
       >
         <div className="row align-items-center w-100">
           {/* 👤 Image Column */}
@@ -114,7 +133,7 @@ export default function App() {
                 Hire Me
               </a>
               <a
-                href="/Moiz-Resume.pdf"
+                href="/Moiz.pdf"
                 className="btn btn-outline-light fw-semibold px-3 py-2"
                 style={{ minWidth: "140px" }}
                 download
@@ -129,12 +148,12 @@ export default function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-5 px-3  text-light">
+      <section id="about" className="py-5 px-3  text-light animate-on-scroll delay-3">
         <div className="container">
           <h3 className="h2 fw-bold mb-3 text-center">About Me</h3>
           <div className="row align-items-center">
             {/* Image Section */}
-            <div className="col-md-5 mb-4 mb-md-0 text-center">
+            <div className="col-md-5 mb-4 mb-md-0 text-center ">
               <img
                 src="/about.gif"
                 alt="Moiz Profile"
@@ -144,7 +163,7 @@ export default function App() {
             </div>
 
             {/* Text Section */}
-            <div className="col-md-7">
+            <div className="col-md-7 delay-2">
               <p className="mb-3">
                 I'm a self-taught full-stack web developer from Pakistan 🇵🇰,
                 passionate about building modern, fast and scalable web
@@ -167,12 +186,12 @@ export default function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-5 text-center bg-dark">
-        <h3 className="h2 fw-bold mb-4">Services</h3>
+      <section id="services" className="py-5 text-center bg-dark animate-on-scroll delay-3">
+        <h3 className="h2 fw-bold mb-4 delay-3">Services</h3>
         <div className="container">
           <div className="row g-4">
             <div className="col-md-4">
-              <div className="bg-secondary p-4 rounded shadow service-card">
+              <div className="bg-secondary p-4 rounded shadow service- delay-3">
                 <FaCode className="text-info fs-1 mb-3" />
                 <h4 className="h5 fw-semibold">Front-End Development</h4>
                 <p>
@@ -183,7 +202,7 @@ export default function App() {
             </div>
             <div className="col-md-4">
               <div className="bg-secondary p-4 rounded shadow  service-card">
-                <FaLaptopCode className="text-info fs-1 mb-3" />
+                <FaLaptopCode className="text-info fs-1 mb-3 delay-3" />
                 <h4 className="h5 fw-semibold">Back-End Development</h4>
                 <p>
                   Scalable server-side apps using Node.js, Express, and MongoDB.
@@ -192,7 +211,7 @@ export default function App() {
             </div>
             <div className="col-md-4">
               <div className="bg-secondary p-4 rounded shadow  service-card">
-                <FaMobileAlt className="text-info fs-1 mb-3" />
+                <FaMobileAlt className="text-info fs-1 mb-3 delay-3" />
                 <h4 className="h5 fw-semibold">Responsive Design</h4>
                 <p>
                   Mobile-first approach to ensure your website looks great on
@@ -205,7 +224,7 @@ export default function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-5 text-center px-3  text-light">
+      <section id="projects" className="py-5 text-center px-3  text-light animate-on-scroll delay-3">
         <h3 className="h2 fw-bold mb-4">Projects</h3>
         <div className="container">
           <div className="row g-4">
@@ -266,7 +285,7 @@ export default function App() {
 
                 <div className="mt-auto d-flex justify-content-center gap-3 flex-wrap">
                   <a
-                    href="https://github.com/moizayub1255/MERN-E-commerce"
+                    href="https://github.com/moizayub1255/MERN-UCP-SPORTS"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-outline-info d-flex align-items-center gap-2"
@@ -276,7 +295,7 @@ export default function App() {
                     GitHub Repo
                   </a>
                   <a
-                    href="https://moizkiecommerce.vercel.app/"
+                    href="https://moizkiucp.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-info text-white d-flex align-items-center gap-2"
@@ -298,7 +317,7 @@ export default function App() {
                   style={{ height: "180px", objectFit: "cover" }}
                 />
 
-                <h4 className="h5 fw-semibold">Capture Mart</h4>
+                <h4 className="h5 fw-semibold">Talaash</h4>
                 <p className="text-light mb-3">
                   A full-stack e-commerce website built with the MERN stack
                   featuring cart, admin dashboard, and authentication.
@@ -333,7 +352,7 @@ export default function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-5 text-center text-light">
+      <section id="contact" className="py-5 text-center text-light animate-on-scroll delay-3">
         <div className="container">
           <h3 className="h2 fw-bold mb-4">Contact Me</h3>
           <p className="mb-4">Let's build something amazing together!</p>
@@ -406,13 +425,13 @@ export default function App() {
 
           {/* 🔗 Social Icons */}
           <div className="d-flex justify-content-center gap-4 mt-4 fs-4">
-            <a href="mailto:moiz@example.com" className="text-info">
+            <a href="mailto:moizayub401@gmail.com" className="text-info">
               <FaEnvelope />
             </a>
-            <a href="https://linkedin.com/in/moiz" className="text-info">
+            <a href="https://linkedin.com/in/moiz-ayub-7b9828323" className="text-info">
               <FaLinkedin />
             </a>
-            <a href="https://github.com/moiz" className="text-info">
+            <a href="https://github.com/moizayub1255" className="text-info">
               <FaGithub />
             </a>
           </div>
