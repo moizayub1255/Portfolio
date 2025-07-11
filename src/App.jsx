@@ -6,151 +6,52 @@ import {
   FaEnvelope,
   FaLinkedin,
   FaGithub,
-  FaBars,
 } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./custom.css"; 
-import "./animations.css"; 
+import "./custom.css";
+import "./animations.css";
+import HeroSection from "./HeroSection";
+import Header from "./Header";
+import Skills from "./Skills";
+import Projects from "./Projects";
 
 export default function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  
 
   useEffect(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
-  const elements = document.querySelectorAll(".animate-on-scroll");
-  elements.forEach((el) => observer.observe(el));
+    const elements = document.querySelectorAll(".animate-on-scroll");
+    elements.forEach((el) => observer.observe(el));
 
-  return () => observer.disconnect();
-}, []);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="text-white min-vh-100 bg-gradient grid-overlay">
       {/* Header */}
-      <header className="p-3 d-flex justify-content-between align-items-center bg-dark bg-opacity-50 position-relative">
-        <h1 className="h3 fw-bold">Moiz Dev</h1>
-        <nav className="d-none d-md-flex gap-3">
-          <a href="#about" className="text-white text-decoration-none nav-link">
-            About
-          </a>
-          <a
-            href="#services"
-            className="text-white text-decoration-none nav-link"
-          >
-            Services
-          </a>
-          <a
-            href="#projects"
-            className="text-white text-decoration-none nav-link"
-          >
-            Projects
-          </a>
-          <a
-            href="#contact"
-            className="text-white text-decoration-none nav-link"
-          >
-            Contact
-          </a>
-        </nav>
-        <button
-          className="btn d-md-none text-white"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <FaBars size={24} />
-        </button>
-        {menuOpen && (
-          <div className="position-absolute top-100 start-0 w-100 bg-dark py-3 d-flex flex-column align-items-center gap-2 z-1">
-            <a
-              href="#about"
-              className="text-white text-decoration-none"
-              onClick={() => setMenuOpen(false)}
-            >
-              About
-            </a>
-            <a
-              href="#services"
-              className="text-white text-decoration-none"
-              onClick={() => setMenuOpen(false)}
-            >
-              Services
-            </a>
-            <a
-              href="#projects"
-              className="text-white text-decoration-none"
-              onClick={() => setMenuOpen(false)}
-            >
-              Projects
-            </a>
-            <a
-              href="#contact"
-              className="text-white text-decoration-none"
-              onClick={() => setMenuOpen(false)}
-            >
-              Contact
-            </a>
-          </div>
-        )}
-      </header>
+       <Header/>
+
 
       {/* Hero Section */}
-      <section
-        className="container d-flex align-items-center pb-3"
-        style={{ minHeight: "90vh" }}
-      >
-        <div className="row align-items-center w-100">
-          {/* 👤 Image Column */}
-          <div className="col-12 col-md-6 text-center mb-4 mb-md-0">
-            <img
-              src="/moiz.jpeg"
-              alt="Moiz"
-              className="rounded-circle img-fluid shadow"
-              style={{ width: "250px", height: "250px", objectFit: "cover" }}
-            />
-          </div>
-
-          {/* ✍️ Text Column */}
-          <div className="col-12 col-md-6 text-center text-md-start">
-            <h2 className="display-4 fw-bold mb-3">Hi, I'm Moiz</h2>
-            <p className="lead text-light">
-              A passionate web developer building modern and responsive websites
-              that not only look stunning but perform flawlessly.
-            </p>
-            <div className="d-flex flex-wrap justify-content-center justify-content-md-start gap-2 mt-3">
-              <a
-                href="#contact"
-                className="btn btn-info text-dark fw-semibold px-3 py-2"
-                style={{ minWidth: "140px" }}
-              >
-                Hire Me
-              </a>
-              <a
-                href="/Moiz.pdf"
-                className="btn btn-outline-light fw-semibold px-3 py-2"
-                style={{ minWidth: "140px" }}
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Resume
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* About Section */}
-      <section id="about" className="py-5 px-3  text-light animate-on-scroll delay-3">
+      <section
+        id="about"
+        className="py-5 px-3  text-light animate-on-scroll delay-3"
+      >
         <div className="container">
-          <h3 className="h2 fw-bold mb-3 text-center">About Me</h3>
+          <h1 className="h2 fw-bold display-5 mb-5 text-center">About Me</h1>
           <div className="row align-items-center">
             {/* Image Section */}
             <div className="col-md-5 mb-4 mb-md-0 text-center ">
@@ -185,9 +86,14 @@ export default function App() {
         </div>
       </section>
 
+      <Skills/>
+
       {/* Services Section */}
-      <section id="services" className="py-5 text-center bg-dark animate-on-scroll delay-3">
-        <h3 className="h2 fw-bold mb-4 delay-3">Services</h3>
+      <section
+        id="services"
+        className="py-5 text-center bg-dark animate-on-scroll delay-3"
+      >
+        <h3 className="h2 fw-bold mb-4 display-5 pb-4 delay-3">Services</h3>
         <div className="container">
           <div className="row g-4">
             <div className="col-md-4">
@@ -224,137 +130,15 @@ export default function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-5 text-center px-3  text-light animate-on-scroll delay-3">
-        <h3 className="h2 fw-bold mb-4">Projects</h3>
-        <div className="container">
-          <div className="row g-4">
-            <div className="col-md-4">
-              <div className="bg-secondary p-4 rounded shadow h-100 d-flex flex-column">
-                <img
-                  src="/project1.png"
-                  alt="Project 1"
-                  className="img-fluid rounded mb-3"
-                  style={{ height: "180px", objectFit: "cover" }}
-                />
-
-                <h4 className="h5 fw-semibold">Capture Mart</h4>
-                <p className="text-light mb-3">
-                  A full-stack e-commerce website built with the MERN stack
-                  featuring cart, admin dashboard, and authentication.
-                </p>
-
-                <div className="mt-auto d-flex justify-content-center gap-3 flex-wrap">
-                  <a
-                    href="https://github.com/moizayub1255/MERN-E-commerce"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-outline-info d-flex align-items-center gap-2"
-                    title="GitHub Repo"
-                  >
-                    <i className="bi bi-github fs-5"></i>
-                    GitHub Repo
-                  </a>
-                  <a
-                    href="https://moizkiecommerce.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-info text-white d-flex align-items-center gap-2"
-                    title="Live Demo"
-                  >
-                    <i className="bi bi-box-arrow-up-right fs-5"></i>
-                    Live Preview
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-4">
-              <div className="bg-secondary p-4 rounded shadow h-100 d-flex flex-column">
-                <img
-                  src="/sports.png"
-                  alt="Project 1"
-                  className="img-fluid rounded mb-3"
-                  style={{ height: "180px", objectFit: "cover" }}
-                />
-
-                <h4 className="h5 fw-semibold">UCP Sports Website</h4>
-                <p className="text-light mb-3">
-                  A full-stack sports website built with the MERN stack
-                  featuring scorecard, admin dashboard, and authentication.
-                </p>
-
-                <div className="mt-auto d-flex justify-content-center gap-3 flex-wrap">
-                  <a
-                    href="https://github.com/moizayub1255/MERN-UCP-SPORTS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-outline-info d-flex align-items-center gap-2"
-                    title="GitHub Repo"
-                  >
-                    <i className="bi bi-github fs-5"></i>
-                    GitHub Repo
-                  </a>
-                  <a
-                    href="https://moizkiucp.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-info text-white d-flex align-items-center gap-2"
-                    title="Live Demo"
-                  >
-                    <i className="bi bi-box-arrow-up-right fs-5"></i>
-                    Live Preview
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-4">
-              <div className="bg-secondary p-4 rounded shadow h-100 d-flex flex-column">
-                <img
-                  src="/project1.png"
-                  alt="Project 1"
-                  className="img-fluid rounded mb-3"
-                  style={{ height: "180px", objectFit: "cover" }}
-                />
-
-                <h4 className="h5 fw-semibold">Talaash</h4>
-                <p className="text-light mb-3">
-                  A full-stack e-commerce website built with the MERN stack
-                  featuring cart, admin dashboard, and authentication.
-                </p>
-
-                <div className="mt-auto d-flex justify-content-center gap-3 flex-wrap">
-                  <a
-                    href="https://github.com/moizayub1255/MERN-E-commerce"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-outline-info d-flex align-items-center gap-2"
-                    title="GitHub Repo"
-                  >
-                    <i className="bi bi-github fs-5"></i>
-                    GitHub Repo
-                  </a>
-                  <a
-                    href="https://moizkiecommerce.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-info text-white d-flex align-items-center gap-2"
-                    title="Live Demo"
-                  >
-                    <i className="bi bi-box-arrow-up-right fs-5"></i>
-                    Live Preview
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Projects/>
 
       {/* Contact Section */}
-      <section id="contact" className="py-5 text-center text-light animate-on-scroll delay-3">
+      <section
+        id="contact"
+        className="py-5 text-center text-light animate-on-scroll delay-3"
+      >
         <div className="container">
-          <h3 className="h2 fw-bold mb-4">Contact Me</h3>
+          <h3 className="h2 display-5 fw-bold mb-4">Contact Me</h3>
           <p className="mb-4">Let's build something amazing together!</p>
 
           {/* 📬 Contact Form */}
@@ -428,7 +212,10 @@ export default function App() {
             <a href="mailto:moizayub401@gmail.com" className="text-info">
               <FaEnvelope />
             </a>
-            <a href="https://linkedin.com/in/moiz-ayub-7b9828323" className="text-info">
+            <a
+              href="https://linkedin.com/in/moiz-ayub-7b9828323"
+              className="text-info"
+            >
               <FaLinkedin />
             </a>
             <a href="https://github.com/moizayub1255" className="text-info">

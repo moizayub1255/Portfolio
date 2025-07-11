@@ -1,12 +1,36 @@
 /* Background Gradient */
 body {
-     background: linear-gradient(to bottom right, #070519, #1b1350, #111120);
-  position: relative;
-  z-index: 0;
+  background: radial-gradient(
+      circle at top left,
+      #1f0036,
+      #0f002a,
+      #07001f,
+      #000015
+    );
   background-size: cover;
+  background-repeat: no-repeat;
   background-attachment: fixed;
+  color: #ffffff;
+  padding-top: 70px;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 0;
+  pointer-events: none;
+}
 
 .grid-overlay::before {
   content: "";
@@ -49,4 +73,14 @@ button {
 .service-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+}
+
+.btn-outline-purple:hover {
+  background-color: #9d4edd;
+  color: white !important;
+  border-color: #9d4edd;
+}
+
+.btn:hover {
+  opacity: 0.9;
 }
