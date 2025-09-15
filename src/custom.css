@@ -1,0 +1,86 @@
+/* Background Gradient */
+body {
+  background: radial-gradient(
+      circle at top left,
+      #1f0036,
+      #0f002a,
+      #07001f,
+      #000015
+    );
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #ffffff;
+  padding-top: 70px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.grid-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: -1;
+}
+
+/* Hover link colors in navbar and mobile menu */
+a.text-white:hover,
+a.text-info:hover {
+  color: #00ffff !important;
+}
+
+/* Smooth transition for buttons and links */
+a,
+button {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Custom shadow effect if needed */
+.shadow {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Hamburger menu mobile z-index fix */
+.z-1 {
+  z-index: 9999;
+}
+
+
+/* Add this to your custom.css */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+}
+
+.btn-outline-purple:hover {
+  background-color: #9d4edd;
+  color: white !important;
+  border-color: #9d4edd;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
