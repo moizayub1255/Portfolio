@@ -14,6 +14,7 @@ import HeroSection from "./HeroSection";
 import Header from "./Header";
 import Skills from "./Skills";
 import Projects from "./Projects";
+import WhatsappFloatingButton from "./Whatsapp";
 
 export default function App() {
   useEffect(() => {
@@ -38,7 +39,7 @@ export default function App() {
     <div className="text-white min-vh-100 bg-gradient grid-overlay">
       {/* Header */}
       <Header />
-
+      <WhatsappFloatingButton />
       {/* Hero Section */}
       <HeroSection />
 
@@ -212,29 +213,28 @@ export default function App() {
 
           {/* 🔗 Social Icons */}
           <div className="d-flex justify-content-center gap-4 mt-4 fs-4">
-  <a
-    href="mailto:moizayub401@gmail.com"
-    className="text-purple"
-    style={{ color: "#9d4edd", transition: "0.3s" }}
-  >
-    <FaEnvelope />
-  </a>
-  <a
-    href="https://linkedin.com/in/moiz-ayub-7b9828323"
-    className="text-purple"
-    style={{ color: "#9d4edd", transition: "0.3s" }}
-  >
-    <FaLinkedin />
-  </a>
-  <a
-    href="https://github.com/moizayub1255"
-    className="text-purple"
-    style={{ color: "#9d4edd", transition: "0.3s" }}
-  >
-    <FaGithub />
-  </a>
-</div>
-
+            <a
+              href="mailto:moizayub401@gmail.com"
+              className="text-purple"
+              style={{ color: "#9d4edd", transition: "0.3s" }}
+            >
+              <FaEnvelope />
+            </a>
+            <a
+              href="https://linkedin.com/in/moiz-ayub-7b9828323"
+              className="text-purple"
+              style={{ color: "#9d4edd", transition: "0.3s" }}
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://github.com/moizayub1255"
+              className="text-purple"
+              style={{ color: "#9d4edd", transition: "0.3s" }}
+            >
+              <FaGithub />
+            </a>
+          </div>
         </div>
       </section>
 

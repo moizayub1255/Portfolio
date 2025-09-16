@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div>
       <header className="p-3 d-flex justify-content-between align-items-center bg-dark bg-opacity-50 fixed-top w-100 z-3 shadow">
-        <h1 className="h3 fw-bold text-white m-0">Moiz Dev</h1>
+        <h1 className="h3 fw-bold text-white m-0">Moiz </h1>
 
         {/* Desktop Nav */}
         <nav className="d-none d-md-flex gap-4">
