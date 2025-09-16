@@ -62,7 +62,7 @@ const HeroSection = () => {
               </a>
 
               <a
-                href="/Moiz.pdf"
+                href="/moiz.pdf"
                 className="btn btn-outline-light fw-semibold px-4 py-2 rounded-pill shadow"
                 style={{ minWidth: "140px" }}
                 download
