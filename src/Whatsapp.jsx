@@ -2,23 +2,22 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaWhatsapp } from 'react-icons/fa';
 
-
-
-export default function WhatsappFloatingButton() {
+export default function WhatsappFloatingButton({ visible }) {
   const [showConfirm, setShowConfirm] = useState(false);
   const phone = '03058666266';
 
   const openWhatsApp = () => {
-    // convert 0305... -> 92305... (Pakistan country code)
     const normalized = phone.replace(/^0+/, '');
-    const waLink = `https://wa.me/92${normalized}`; // opens chat with the number
+    const waLink = `https://wa.me/92${normalized}`;
     window.open(waLink, '_blank');
     setShowConfirm(false);
   };
 
+  if (!visible) return null; // 👈 jab tak visible na ho, button show hi mat karo
+
   return (
     <>
-      {/* Floating button - left bottom */}
+      {/* Floating button */}
       <div
         aria-hidden
         onClick={() => setShowConfirm(true)}
@@ -46,7 +45,7 @@ export default function WhatsappFloatingButton() {
         </div>
       </div>
 
-      {/* Simple confirmation modal (Bootstrap-like look) */}
+      {/* Confirmation modal */}
       {showConfirm && (
         <div
           className="d-flex align-items-center justify-content-center"
@@ -71,7 +70,9 @@ export default function WhatsappFloatingButton() {
           >
             <div className="card-body">
               <h5 className="card-title">Redirect to WhatsApp?</h5>
-              <p className="card-text">Do you want to open WhatsApp chat with <strong>{phone}</strong>?</p>
+              <p className="card-text">
+                Do you want to open WhatsApp chat with <strong>{phone}</strong>?
+              </p>
               <div className="d-flex justify-content-end gap-2">
                 <button
                   className="btn btn-secondary"
@@ -79,10 +80,7 @@ export default function WhatsappFloatingButton() {
                 >
                   No
                 </button>
-                <button
-                  className="btn btn-success"
-                  onClick={openWhatsApp}
-                >
+                <button className="btn btn-success" onClick={openWhatsApp}>
                   Yes, open chat
                 </button>
               </div>

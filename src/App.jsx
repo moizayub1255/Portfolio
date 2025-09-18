@@ -17,8 +17,11 @@ import Projects from "./Projects";
 import WhatsappFloatingButton from "./Whatsapp";
 
 export default function App() {
+  const [showWhatsApp, setShowWhatsApp] = useState(false);
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    // Animation observer (for fade-in animations)
+    const animationObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -30,28 +33,46 @@ export default function App() {
     );
 
     const elements = document.querySelectorAll(".animate-on-scroll");
-    elements.forEach((el) => observer.observe(el));
+    elements.forEach((el) => animationObserver.observe(el));
 
-    return () => observer.disconnect();
+    // WhatsApp observer (for multiple sections)
+    const targetSections = ["about","services", "skills", "projects", "contact"];
+    const whatsappObserver = new IntersectionObserver(
+      (entries) => {
+        const isVisible = entries.some((entry) => entry.isIntersecting);
+        setShowWhatsApp(isVisible);
+      },
+      { threshold: 0.2 }
+    );
+
+    targetSections.forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) whatsappObserver.observe(section);
+    });
+
+    return () => {
+      animationObserver.disconnect();
+      whatsappObserver.disconnect();
+    };
   }, []);
 
   return (
     <div className="text-white min-vh-100 bg-gradient grid-overlay">
-      {/* Header */}
       <Header />
-      <WhatsappFloatingButton />
-      {/* Hero Section */}
+
+      {/* WhatsApp Floating Button */}
+      <WhatsappFloatingButton visible={showWhatsApp} />
+
       <HeroSection />
 
       {/* About Section */}
       <section
         id="about"
-        className="py-5 px-3  text-light animate-on-scroll delay-3"
+        className="py-5 px-3 text-light animate-on-scroll delay-3"
       >
         <div className="container">
           <h1 className="h2 fw-bold display-5 mb-5 text-center">About Me</h1>
           <div className="row align-items-center">
-            {/* Image Section */}
             <div className="col-md-5 mb-4 mb-md-0 text-center ">
               <img
                 src="/about.gif"
@@ -60,31 +81,25 @@ export default function App() {
                 style={{ maxHeight: "350px", objectFit: "cover" }}
               />
             </div>
-
-            {/* Text Section */}
             <div className="col-md-7 delay-2">
               <p className="mb-3">
                 I'm a self-taught full-stack web developer from Pakistan 🇵🇰,
-                passionate about building modern, fast and scalable web
-                applications using the MERN stack. I love clean code, great
-                UI/UX, and turning creative ideas into reality.
+                passionate about building modern, fast and scalable web apps.
               </p>
               <p className="mb-3">
-                With hands-on experience in both frontend and backend, I enjoy
-                working on diverse projects — from e-commerce platforms to
-                dynamic dashboards. I'm always exploring new tech and improving
-                my skills daily.
+                With hands-on experience in frontend & backend, I love working
+                on diverse projects — from e-commerce to dashboards.
               </p>
               <p>
-                When I’m not coding, you’ll find me exploring tech trends,
-                learning something new, or helping others grow.
+                When I’m not coding, I’m probably exploring tech trends or
+                helping others grow.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <Skills />
+      <Skills id="skills" />
 
       {/* Services Section */}
       <section
@@ -128,7 +143,7 @@ export default function App() {
       </section>
 
       {/* Projects Section */}
-      <Projects />
+      <Projects id="projects" />
 
       {/* Contact Section */}
       <section
@@ -159,9 +174,6 @@ export default function App() {
             style={{ maxWidth: "600px" }}
           >
             <div className="mb-3 text-start">
-              {/* <label htmlFor="name" className="form-label fw-semibold">
-                Name
-              </label> */}
               <input
                 type="text"
                 name="name"
@@ -172,9 +184,6 @@ export default function App() {
             </div>
 
             <div className="mb-3 text-start">
-              {/* <label htmlFor="email" className="form-label fw-semibold">
-                Email
-              </label> */}
               <input
                 type="email"
                 name="email"
@@ -185,9 +194,6 @@ export default function App() {
             </div>
 
             <div className="mb-3 text-start">
-              {/* <label htmlFor="message" className="form-label fw-semibold">
-                Message
-              </label> */}
               <textarea
                 name="message"
                 rows="4"
@@ -239,7 +245,10 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="text-center py-3 bg-dark bg-opacity-50 text-secondary small">
+      <footer
+        id="footer"
+        className="text-center py-3 bg-dark bg-opacity-50 text-secondary small"
+      >
         © {new Date().getFullYear()} Moiz Dev. All rights reserved.
       </footer>
     </div>
