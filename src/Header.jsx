@@ -40,23 +40,22 @@ const Header = () => {
         </button>
 
         {/* Mobile Menu Overlay */}
-        <div 
-          className={`mobile-menu-overlay ${menuOpen ? 'active' : ''}`}
+        <div
+          className={`mobile-menu-overlay ${menuOpen ? "active" : ""}`}
           onClick={() => setMenuOpen(false)}
         ></div>
 
         {/* Mobile Menu */}
-        <div className={`mobile-menu ${menuOpen ? 'active' : ''}`}>
+        <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
           <div className="mobile-menu-header d-flex justify-content-end align-items-center p-3">
-            
-            <button 
+            <button
               className="btn text-white p-1"
               onClick={() => setMenuOpen(false)}
             >
               <FaTimes size={20} />
             </button>
           </div>
-          
+
           <div className="mobile-menu-content d-flex flex-column justify-content-start gap-4 p-4">
             {navItems.map((item) => (
               <a
@@ -74,7 +73,7 @@ const Header = () => {
 
       <style>{`
         .gradient-text {
-          background: linear-gradient(45deg, #00ffff, #0080ff);
+          background: linear-gradient(45deg, #a555e8ff, #8812beff);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -93,7 +92,7 @@ const Header = () => {
           left: 0;
           width: 0%;
           height: 2px;
-          background: linear-gradient(45deg, #00ffff, #0080ff);
+          background: linear-gradient(45deg, #a555e8ff, #8812beff);
           transition: width 0.3s ease;
         }
 
@@ -102,7 +101,7 @@ const Header = () => {
         }
 
         .custom-nav-link:hover {
-          color: #00ffff !important;
+          color: #a555e8ff !important;
         }
 
         /* Mobile Menu Styles */
@@ -168,7 +167,7 @@ const Header = () => {
           top: 0;
           height: 100%;
           width: 0;
-          background: linear-gradient(45deg, #00ffff, #0080ff);
+          background: linear-gradient(45deg, #a555e8ff, #8812beff);
           border-radius: 8px;
           transition: width 0.3s ease;
           z-index: -1;
